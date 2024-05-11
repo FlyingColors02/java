@@ -22,3 +22,4 @@ public class objectCreation {
 		new objectCreation(0, 0);
 	}
 }
+ 
