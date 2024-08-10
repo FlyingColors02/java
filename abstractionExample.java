@@ -43,10 +43,29 @@ abstract class abstractionExample3{
 	void m2(){
 		System.out.println("m2 method");
 	}
+
+	public static void main(String[] args) {
+		System.out.println("In abstract class main method declaration possible");
+		//object creation not possible
+		// abstractionExample3 abstractionExample3_obj = new abstractionExample3();
+
+	}
 }
 
 //every abstract class needs to be implemented through the child class by over-riding it
 abstract class abstractionExample4 extends abstractionExample2{
+
+	static{
+		System.out.println("abstract class static block"); //single time call when .class load
+	}
+
+	{
+		System.out.println("abstract class instance block"); //2 times called as object was created 2 times
+	}
+
+	abstractionExample4(){
+		System.out.println("abstract class construction"); //without object creation constructor calling is not possible but we can achieve it using "super"
+	}
 	void m5(){
 		System.out.println("every abstract class needs to be implemented");
 	}
@@ -55,6 +74,11 @@ abstract class abstractionExample4 extends abstractionExample2{
 
 //if their are abstract methods in parent class, every method needs to be over-ridden else declare the child class as abstract
 public class abstractionExample extends abstractionExample4{ 
+
+	abstractionExample(){
+		super();
+		System.out.println("calling abstract parent method constructor using super");
+	}
 
 	void m4(){
 		System.out.println("normal method!!");
